@@ -30,6 +30,11 @@ nav {
     color: #D9CBBF;
     background-color: #D9CBBF;
     color: #592C30;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
   }
 
   .Option:hover
@@ -37,4 +42,26 @@ nav {
     
     background-color: #592C30;
     color: #D9CBBF;
+  }
+
+  .ActiveOption {
+    background-color: #592C30;
+    color: #D9CBBF;
+    font-family: 'Vegan Abattoir', sans-serif;
+    border: 2px solid;
+    border-color: black;
+    font-size: 20px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px #733641;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+  }
+
+  .ActiveOption:hover
+  {
+    background-color: #D9CBBF;
+    color: #592C30;
   }

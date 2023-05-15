@@ -514,7 +514,7 @@ export const getProducts = () => {
 export const getProductsById = (productId) => {
     return new Promise ((resolve) => {
         setTimeout(() => {
-            resolve(products.filter(prod => prod.id === productId))
+            resolve(products.find(prod => prod.id === parseInt(productId)))
         }, 500)
     })
 }
