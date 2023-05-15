@@ -13,14 +13,14 @@
   }
 
 
-.Option {
+.OptionFooter {
   background-color: #733641;
   color: white;
   font-family: 'Vegan Abattoir', sans-serif;
   cursor: pointer;
 }
 
-.Option:hover {
+.OptionFooter:hover {
   background-color: white;
   color: #733641;
 }

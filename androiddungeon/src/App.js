@@ -16,10 +16,14 @@ function App() {
           <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
         </Routes>
       </BrowserRouter>
-      
-      <ItemListContainer greeting={"Hola Pequeño Androide!"}/>
     </div>
+       
+
   );
 }
 
 export default App;
+
+
+/*
+*/
