@@ -1,0 +1,15 @@
+@import url('https://fonts.cdnfonts.com/css/vegan-abattoir');
+
+div {
+    background-color: green;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Vegan Abattoir', sans-serif;
+    text-shadow: 1px 1px 2px white;
+    
+}
+
+.GreetingILC {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

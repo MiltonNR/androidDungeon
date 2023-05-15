@@ -1,0 +1,36 @@
+@import url('https://fonts.cdnfonts.com/css/vegan-abattoir');
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: green;
+  }
+
+
+  
+  nav img {
+    max-height: 50px;
+  }
+  
+  nav div {
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav button {
+    font-family: 'Vegan Abattoir', sans-serif;
+    border: 2px solid;
+    border-color: black;
+    background-color: #D9CBBF;
+    font-size: 20px;
+    cursor: pointer;
+    color:#592C30;
+    text-shadow: 1px 1px 2px #733641;
+  }
+  
+  nav button:hover {
+    background-color: #592C30;
+    color: #D9CBBF;
+  }

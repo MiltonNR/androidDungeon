@@ -1,0 +1,23 @@
+.ListGroup {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    background-color: green;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  @media (max-width: 720px) {
+    .ListGroup {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 721px) and (max-width: 1024px) {
+    .ListGroup {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  

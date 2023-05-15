@@ -1,0 +1,11 @@
+.CartWidget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carrito {
+    max-width: 50px;
+    margin-right: 5px;
+  }
+  
