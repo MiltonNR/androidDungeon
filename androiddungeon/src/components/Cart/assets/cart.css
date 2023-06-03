@@ -1,0 +1,11 @@
+.CardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px
+}
+
+.CardContainer {
+  max-width: 1200px;
+  margin: 10px;
+}
