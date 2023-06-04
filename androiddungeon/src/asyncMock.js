@@ -80,7 +80,7 @@ const products = [
         detalle: "Figura de 25 cm del Superheroe de Attack on Titan"
     },
     {
-        id: 11,
+        id: 9,
         titulo: "Babe Ruth",
         autor: "New York Yankees",
         precio: 19.99,
@@ -90,7 +90,7 @@ const products = [
         detalle: "George Herman Ruth Jr., mejor conocido como Babe Ruth, fue un legendario jugador de béisbol que jugó para los New York Yankees. Fue uno de los jugadores más destacados en la historia del béisbol, conocido por sus impresionantes habilidades como bateador y su récord de jonrones. Su impacto en el deporte y su legado perduran hasta el día de hoy."
     },
     {
-        id: 12,
+        id: 10,
         titulo: "Hank Aaron",
         autor: "Milwaukee Braves",
         precio: 24.99,
@@ -101,6 +101,10 @@ const products = [
     },
 
 ];
+
+
+
+
 
 
 export const getProducts = () => {

@@ -12,9 +12,7 @@ const ItemDetail = ({id, titulo, autor, precio, stock, imagen, detalle}) => {
     const handleOnAdd = (quantity) => {
         setQuantityAdded(quantity)
 
-        const item = {
-            id, titulo, precio, imagen
-        }
+        const item = {id, titulo, autor, precio, stock, imagen, detalle}
 
         addItem (item, quantity)
     }

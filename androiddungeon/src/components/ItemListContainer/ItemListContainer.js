@@ -29,7 +29,7 @@ const ItemListContainer = ({greeting}) => {
         <div className="ItemListContainer">
             <h1>{greeting}</h1>
             <ItemList products={products} />
-            <img className="GreetingILC" src= {saludos} alt="androide"/>
+            <img className="GreetingILC" src={saludos} alt="androide"/>
         </div>
     )
 }
