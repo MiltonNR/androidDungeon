@@ -1,59 +1,59 @@
-import saludos from "./assets/saludos.png"
-import "./assets/ItemListContainer.css"
-import { useState, useEffect } from "react"
-import ItemList from "../ItemList/ItemList"
-import { useParams } from "react-router-dom"
-import { getDocs, collection, query, where } from "firebase/firestore"
-import { db } from "../../service/firebase/firebaseConfig"
+import saludos from "./assets/saludos.png";
+import "./assets/ItemListContainer.css";
+import { useState, useEffect } from "react";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../service/firebase/firebaseConfig";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    const [products, setProducts  ] = useState([])
-    const [loading, setLoading] = useState(true)
+  const { categoryId } = useParams();
 
-    const {categoryId} = useParams()
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
-    useEffect(() => {
-        setLoading(true)
+  const loadProducts = () => {
+    if (loading) return;
+    setLoading(true);
 
-        const collectionRef = categoryId
-        ? query(collection(db,"items"), where("categoria", "==", categoryId))
-        : collection(db, "items")
+    const collectionRef = categoryId
+      ? query(collection(db, "products"), where("categoria", "==", categoryId))
+      : collection(db, "products");
 
-        getDocs(collectionRef)
-            .then(response => {
-                const productsAdapted = response.doc.map(doc => {
-                    const data = doc.data()
-                    return {id: doc.id, ...data}
-                })
-                setProducts(productsAdapted)
-            })
-                .catch (error => {
-                    console.log(error)
-                })
-                .finally(() => {
-                    setLoading(false)
-                })
-            })
+    getDocs(collectionRef)
+      .then((response) => {
+        const productsAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setProducts(productsAdapted);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
-            return (
-                <div className="ItemListContainer">
-                    <h1>{greeting}</h1>
-                    <ItemList products={products} />
-                    <img className="GreetingILC" src={saludos} alt="androide"/>
-                </div>
-            )
+  return (
+    <div className="ItemListContainer">
+      <h1>{greeting}</h1>
+      <ItemList products={products} />
+      <img className="GreetingILC" src={saludos} alt="androide" />
+    </div>
+  );
+};
 
-
-    }
-    
- 
-
-export default ItemListContainer
+export default ItemListContainer;
 
 //Logica vieja
 
-    /*useEffect (() => {
+/*useEffect (() => {
         const asynFunc = categoriaId ? getProductsByCategoria : getProducts
 
         asynFunc(categoriaId)

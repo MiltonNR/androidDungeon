@@ -1,28 +1,31 @@
 import "./assets/ItemDetailContainer.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import { getDoc, doc } from "firebase/firestore"
-import { db } from "../../service/firebase/firebaseConfig"
- 
-
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../service/firebase/firebaseConfig";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { itemId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
+    getProduct();
+  }, [itemId]);
 
-    const docRef = doc(db, "items", itemId);
-    
+  const getProduct = () => {
+    if (loading) return;
+    setLoading(true);
+    const docRef = doc(db, "products", itemId);
+
     getDoc(docRef)
       .then((response) => {
         const data = response.data();
-        const productAdapted = { id: response.id, ...data };
-        setProduct(productAdapted);
+        const product = { ...data, id: response.id };
+
+        setProduct(product);
       })
       .catch((error) => {
         console.log(error);
@@ -30,7 +33,7 @@ const ItemDetailContainer = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, [itemId]);
+  };
 
   return (
     <div className="ItemDetailContainer">
@@ -39,9 +42,7 @@ const ItemDetailContainer = () => {
   );
 };
 
-
-export default ItemDetailContainer
-
+export default ItemDetailContainer;
 
 //logica vieja
 

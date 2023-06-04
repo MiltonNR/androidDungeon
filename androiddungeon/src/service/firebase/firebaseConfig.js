@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDvh7Jq_JDwkVYpvzaU69vOdK0G-NWHQP4",
-  authDomain: "androiddungeon-4bead.firebaseapp.com",
-  projectId: "androiddungeon-4bead",
-  storageBucket: "androiddungeon-4bead.appspot.com",
-  messagingSenderId: "207273121212",
-  appId: "1:207273121212:web:a167ed654a295f228787b9"
+  apiKey: "AIzaSyAL8MO9Voh1Omw-41hqHvpPW65PaEnyjtQ",
+  authDomain: "androidos-a8d35.firebaseapp.com",
+  projectId: "androidos-a8d35",
+  storageBucket: "androidos-a8d35.appspot.com",
+  messagingSenderId: "568743960522",
+  appId: "1:568743960522:web:6f926bb3177ddf8c937933"
 };
 
 const app = initializeApp(firebaseConfig);
