@@ -1,32 +1,62 @@
 import "./assets/ItemDetailContainer.css";
 import { useState, useEffect } from "react";
-import { getProductsById } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../service/firebase/firebaseConfig"
+ 
 
 
 const ItemDetailContainer = () => {
-    const [product, setProduct] = useState (null)
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    const {itemId} = useParams()
+  const { itemId } = useParams();
 
-    useEffect(() => {
-        getProductsById(itemId)
-        .then(response => {
-            setProduct(response)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-    }, [itemId] )
+  useEffect(() => {
+    setLoading(true);
 
-    return (
-        <div className="ItemDetailContainer">
-            <ItemDetail {...product} />
-        </div>
-    )
-}
+    const docRef = doc(db, "items", itemId);
+    
+    getDoc(docRef)
+      .then((response) => {
+        const data = response.data();
+        const productAdapted = { id: response.id, ...data };
+        setProduct(productAdapted);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [itemId]);
+
+  return (
+    <div className="ItemDetailContainer">
+      <ItemDetail {...product} />
+    </div>
+  );
+};
 
 
 export default ItemDetailContainer
+
+
+//logica vieja
+
+/*useEffect(() => {
+    getProductsById(itemId)
+    .then(response => {
+        setProduct(response)
+    })
+    .catch(error => {
+        console.error(error)
+    })
+}, [itemId] )
+
+return (
+    <div className="ItemDetailContainer">
+        <ItemDetail {...product} />
+    </div>
+)*/

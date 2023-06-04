@@ -10,7 +10,7 @@ const CartWidget = () => {
 
     return (
 
-        <Link to="/cart" className="CartWidget">
+        <Link to="/cart" className="CartWidget" style={{display:total > 0 ? "flex" : "none"}}>
             <img className="carrito" src={carrito} alt="carrito"/>
             { total }
         </Link>
