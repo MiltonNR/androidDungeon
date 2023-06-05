@@ -14,16 +14,16 @@ const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     loadProducts();
-  }, []);
+  }, [categoryId]);
 
   const loadProducts = () => {
     if (loading) return;
     setLoading(true);
-
+   
     const collectionRef = categoryId
       ? query(collection(db, "products"), where("categoria", "==", categoryId))
       : collection(db, "products");
-
+      
     getDocs(collectionRef)
       .then((response) => {
         const productsAdapted = response.docs.map((doc) => {
