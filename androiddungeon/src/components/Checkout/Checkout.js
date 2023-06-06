@@ -7,19 +7,34 @@ import CheckoutForm from "../CheckoutForm/CheckoutForm"
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState("")
+    const [showAlert, setShowAlert] = useState(false)
 
-    const { cart, total, clearCart } = useContext(CartContext)
+    const { cart, clearCart } = useContext(CartContext)
+
+    const getTotal = () => {
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+        });
+        return total;
+    }
 
     const createOrder = async ({ name, phone, email}) => {
         setLoading(true)
 
         try {
+            if (!name || !phone || !email) { // Verificar si algún campo está vacío
+                setShowAlert(true) // Mostrar la alerta
+                return;
+            }
+
+        
             const objOrder = {
                 buyer: {
                     name, phone, email
                 },
                 items: cart, 
-                total: total, 
+                total: getTotal(), 
                 date: Timestamp.fromDate(new Date())
             }
 
@@ -37,13 +52,13 @@ const Checkout = () => {
 
             docs.forEach(doc => {
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.stockDb
+                const stock = dataDoc.stock
 
                 const productAddedToCart = cart.find(prod => prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.quantity
 
-                if (stockDb >= prodQuantity) {
-                    batch.uptade(doc.ref, {stock:stockDb-prodQuantity})
+                if (stock >= prodQuantity) {
+                    batch.update(doc.ref, {stock:stock-prodQuantity})
                 } else {
                     outOfStock.push ({id: doc.id, ...dataDoc})
                 }
