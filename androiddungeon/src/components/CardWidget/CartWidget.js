@@ -6,13 +6,21 @@ import { Link } from "react-router-dom"
 
 const CartWidget = () => {
 
-    const { total } = useContext(CartContext)
+    const { total,cart } = useContext(CartContext)
+
+    const getItemsText = () => {
+        if (cart.length === 1) {
+          return "item";
+        } else {
+          return "items";
+        }
+      }
 
     return (
 
         <Link to="/cart" className="CartWidget" style={{display:total > 0 ? "flex" : "none"}}>
             <img className="carrito" src={carrito} alt="carrito"/>
-            { total }
+           ¡Androide! Tenés ({cart.length}) {getItemsText()} por la suma de: { total }  
         </Link>
 
     )
