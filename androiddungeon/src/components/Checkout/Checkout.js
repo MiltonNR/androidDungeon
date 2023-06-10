@@ -7,8 +7,7 @@ import CheckoutForm from "../CheckoutForm/CheckoutForm"
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState("")
-    const [showAlert, setShowAlert] = useState(false)
-
+    
     const { cart, clearCart } = useContext(CartContext)
 
     const getTotal = () => {
@@ -23,12 +22,7 @@ const Checkout = () => {
         setLoading(true)
 
         try {
-            if (!name || !phone || !email) { // Verificar si algún campo está vacío
-                setShowAlert(true) // Mostrar la alerta
-                return;
-            }
-
-        
+                    
             const objOrder = {
                 buyer: {
                     name, phone, email
@@ -94,7 +88,7 @@ const Checkout = () => {
 
     return (
         <div>
-            <h1>Checkout</h1>
+            <h1>Para finalizar la compra ingrese sus datos</h1>
             <CheckoutForm onConfirm={createOrder}/>
         </div>
     )

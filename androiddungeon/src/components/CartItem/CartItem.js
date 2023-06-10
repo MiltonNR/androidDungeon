@@ -2,6 +2,7 @@ import React from "react";
 import ItemCount from "../ItemCount/ItemCount"
 import "./assets/CartItems.css"
 import { useContext } from "react"
+import tachito from "./assets/tachito.png"
 import CartContext from "../../context/CartContext";
 
 const CartItem = ({ id, imagen, stock, titulo, autor, precio, quantity }) => {
@@ -20,9 +21,9 @@ const CartItem = ({ id, imagen, stock, titulo, autor, precio, quantity }) => {
       
       <ItemCount initial={quantity} stock={stock} onAdd={(newQuantity) => updateQuantity(id, newQuantity)} buttonLabel="Modificar Cantidad"/>
 
-      <button onClick={() => removeItem(id)}>X</button>
-
-    </div>
+      <img className="tachito" src={tachito} alt="tachito" onClick={() => removeItem(id)}></img>
+      
+      </div>
   );
 };
 

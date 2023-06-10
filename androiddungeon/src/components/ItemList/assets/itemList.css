@@ -1,23 +1,27 @@
+.Container {
+  display: flex;
+  justify-content: center;
+}
+
 .ListGroup {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    background-color: green;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: #008000;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (max-width: 720px) {
+  .ListGroup {
+    justify-content: flex-start;
   }
-  
-  @media (max-width: 720px) {
-    .ListGroup {
-      grid-template-columns: 1fr;
-    }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  .ListGroup {
+    justify-content: space-between;
   }
-  
-  @media (min-width: 721px) and (max-width: 1024px) {
-    .ListGroup {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  
+}

@@ -9,3 +9,34 @@
   max-width: 1200px;
   margin: 10px;
 }
+
+.OptionCartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px; /* Agrega un espacio vertical de 10px entre los elementos */
+}
+
+
+.OptionCart {
+  /* Estilos para el botón y el enlace */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  text-decoration: none;
+  border: solid black 2px;
+  font-family: 'Vegan Abattoir', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  background-color: #D9CBBF;
+  color: #592C30;
+}
+
+.OptionCart:hover {
+  /* Estilos para el botón y el enlace al pasar el cursor por encima */
+  background-color: #592C30;
+  color: #D9CBBF;
+}

@@ -1,9 +1,12 @@
-.CartWidget{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+.CartWidget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-shadow: 1px 1px 2px white, 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+
   .carrito {
     max-width: 50px;
     margin-right: 5px;
