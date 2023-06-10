@@ -43,21 +43,3 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
-
-//logica vieja
-
-/*useEffect(() => {
-    getProductsById(itemId)
-    .then(response => {
-        setProduct(response)
-    })
-    .catch(error => {
-        console.error(error)
-    })
-}, [itemId] )
-
-return (
-    <div className="ItemDetailContainer">
-        <ItemDetail {...product} />
-    </div>
-)*/

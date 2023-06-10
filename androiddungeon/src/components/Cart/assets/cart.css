@@ -14,12 +14,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 10px; /* Agrega un espacio vertical de 10px entre los elementos */
+  gap: 10px; 
 }
 
 
 .OptionCart {
-  /* Estilos para el botón y el enlace */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +35,7 @@
 }
 
 .OptionCart:hover {
-  /* Estilos para el botón y el enlace al pasar el cursor por encima */
+  
   background-color: #592C30;
   color: #D9CBBF;
 }

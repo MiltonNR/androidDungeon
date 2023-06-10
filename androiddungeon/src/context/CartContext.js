@@ -10,14 +10,12 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     if (!isInCart(item.id)) {
-      // el producto NO esta en el carrito => lo agrego
       const cartUpdated = [...cart, { ...item, quantity }];
       const newTotal = computeTotal(cartUpdated);
 
       setCart(cartUpdated);
       setTotal(newTotal);
     } else {
-      // el producto SI esta en el carrito => actualizo la cantidad
       const currentQuantity = cart.find((i) => i.id === item.id).quantity;
       updateQuantity(item.id, quantity + currentQuantity);
     }

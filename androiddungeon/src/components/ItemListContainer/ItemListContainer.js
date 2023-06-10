@@ -51,27 +51,3 @@ const ItemListContainer = ({ greeting }) => {
 
 export default ItemListContainer;
 
-//Logica vieja
-
-/*useEffect (() => {
-        const asynFunc = categoriaId ? getProductsByCategoria : getProducts
-
-        asynFunc(categoriaId)
-        .then (response => {
-            setProducts(response)
-        })
-        .catch (error => {
-            console.error(error)
-        })
-    }, [categoriaId])
-
-    
-
-    return (
-        <div className="ItemListContainer">
-            <h1>{greeting}</h1>
-            <ItemList products={products} />
-            <img className="GreetingILC" src={saludos} alt="androide"/>
-        </div>
-    )
-    */
